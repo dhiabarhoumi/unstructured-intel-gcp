@@ -1,0 +1,41 @@
+suite_name: "hn_stories_validation"
+
+expectations:
+  - expectation_type: "expect_table_row_count_to_be_between"
+    kwargs:
+      min_value: 1000
+      max_value: 200000
+
+  - expectation_type: "expect_column_values_to_not_be_null"
+    kwargs:
+      column: "id"
+
+  - expectation_type: "expect_column_values_to_not_be_null"
+    kwargs:
+      column: "time"
+
+  - expectation_type: "expect_column_values_to_not_be_null"
+    kwargs:
+      column: "combined_text"
+
+  - expectation_type: "expect_column_values_to_be_in_set"
+    kwargs:
+      column: "language"
+      value_set: ["en"]
+
+  - expectation_type: "expect_column_value_lengths_to_be_between"
+    kwargs:
+      column: "combined_text"
+      min_value: 50
+      max_value: 10000
+
+  - expectation_type: "expect_column_values_to_be_of_type"
+    kwargs:
+      column: "score"
+      type_: "int64"
+
+  - expectation_type: "expect_column_min_to_be_between"
+    kwargs:
+      column: "score"
+      min_value: 0
+      max_value: 0

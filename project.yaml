@@ -1,0 +1,37 @@
+name: "Unstructured Intelligence Platform on GCP"
+dates:
+  start: "2024-01"
+  end: "2024-02"
+role_tags:
+  - Data Engineering
+  - ML Engineering
+  - NLP
+  - MLOps
+stack:
+  - GCS
+  - BigQuery
+  - Dataproc Serverless (Spark)
+  - Cloud Run (FastAPI)
+  - Cloud Composer (Airflow)
+  - Great Expectations
+  - FAISS
+datasets:
+  - name: "Hacker News"
+    table: "bigquery-public-data.hacker_news.{stories,comments}"
+  - name: "Wikipedia pageviews"
+    table: "bigquery-public-data.wikipedia.pageviews_2024"
+  - name: "GitHub Repos"
+    table: "bigquery-public-data.github_repos.{contents,files,languages}"
+  - name: "Open Images"
+    url: "https://storage.googleapis.com/openimages/web/index.html"
+benchmarks:
+  embedding_model: "all-MiniLM-L6-v2"
+  search_latency_p95_ms: "< 150ms"
+  embedding_throughput_docs_per_s: "~500"
+evidence:
+  ge_report_uri: "gs://<bucket>/reports/ge/index.html"
+  api_openapi_url: "(Cloud Run URL)/docs"
+  bq_queries: "sql/*.sql"
+limits:
+  - "HN/Wikipedia are public snapshots; near-real-time requires Composer schedule."
+  - "Open Images processed as metadata + small sampled subset for demo."
