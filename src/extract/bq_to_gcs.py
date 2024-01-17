@@ -74,6 +74,8 @@ def extract_bq_to_gcs(
     if format == "PARQUET":
         extract_config.compression = bigquery.Compression.SNAPPY
     
+    logger.info(f"Starting extraction to {out_uri}")
+    
     # Ensure URI ends with wildcard for sharding
     if not out_uri.endswith("*"):
         out_uri = out_uri.rstrip("/") + "/*.parquet"
