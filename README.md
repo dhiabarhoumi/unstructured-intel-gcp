@@ -116,7 +116,7 @@ gcloud run deploy intel-search \
 
 ## Datasets
 
-All queries are in `sql/` directory:
+All queries are in `sql/` directory. These use Google's public BigQuery datasets which are updated regularly.
 
 ### Hacker News
 ```sql
