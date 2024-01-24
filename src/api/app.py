@@ -133,9 +133,12 @@ async def startup_event():
 @app.get("/healthz")
 async def health_check():
     """Health check endpoint."""
+    indexes_count = sum(len(idx["doc_ids"]) for idx in FAISS_INDEXES.values())
+    
     return {
         "status": "healthy",
         "indexes_loaded": list(FAISS_INDEXES.keys()),
+        "total_documents": indexes_count,
         "model_loaded": EMBEDDING_MODEL is not None
     }
 
