@@ -46,6 +46,9 @@ def clean_text(text: Optional[str]) -> Optional[str]:
     # Remove URLs
     text = re.sub(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', text)
     
+    # Remove email addresses
+    text = re.sub(r'\S+@\S+', '', text)
+    
     # Remove extra whitespace
     text = re.sub(r'\s+', ' ', text)
     
