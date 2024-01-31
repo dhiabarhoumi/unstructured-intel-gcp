@@ -96,6 +96,10 @@ def main():
     
     args = parser.parse_args()
     
+    print(f"Starting embedding generation with model: {args.model}")
+    print(f"Input: {args.input_path}")
+    print(f"Output: {args.output_path}")
+    
     spark = SparkSession.builder \
         .appName("EmbedTexts") \
         .config("spark.sql.parquet.compression.codec", "snappy") \
