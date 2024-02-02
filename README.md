@@ -169,12 +169,15 @@ curl http://localhost:8080/trending?window=7d&top=50
 
 ## KPIs & Benchmarks
 
-| Metric | Value |
-|--------|-------|
-| Embedding Model | all-MiniLM-L6-v2 |
-| Embedding Throughput | ~500 docs/sec |
-| Search Latency (P95) | < 150ms |
-| Data Quality Score | > 95% (GE validation) |
+| Metric | Value | Notes |
+|--------|-------|-------|
+| Embedding Model | all-MiniLM-L6-v2 | 384-dimensional vectors |
+| Embedding Throughput | ~500 docs/sec | On CPU, batch size 32 |
+| Search Latency (P95) | < 150ms | FAISS Flat index |
+| Search Latency (P99) | < 300ms | End-to-end API |
+| Data Quality Score | > 95% | GE validation pass rate |
+| Index Build Time | ~30s | For 100K documents |
+| Storage (compressed) | ~2GB | Per 1M documents |
 
 **Evidence**:
 - Great Expectations report: `gs://<bucket>/reports/ge/index.html`
