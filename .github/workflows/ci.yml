@@ -46,6 +46,9 @@ jobs:
     - name: Run tests
       run: |
         pytest tests/ -v --cov=src --cov-report=xml --cov-report=term
+      env:
+        PROJECT_ID: test-project
+        BUCKET: gs://test-bucket
     
     - name: Upload coverage
       uses: codecov/codecov-action@v3
