@@ -51,13 +51,14 @@ def build_faiss_index(
     Build FAISS index from embeddings.
     
     Args:
-        embeddings: Numpy array of embeddings
+        embeddings: Numpy array of embeddings (n_samples, dimension)
         index_type: Type of FAISS index (Flat, IVF, HNSW)
         
     Returns:
         FAISS index
     """
-    dimension = embeddings.shape[0]
+    n_samples, dimension = embeddings.shape
+    logger.info(f"Building {index_type} index for {n_samples} vectors of dimension {dimension}")
     
     if index_type == "Flat":
         # Simple flat index (exhaustive search)
