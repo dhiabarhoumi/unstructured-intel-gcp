@@ -17,6 +17,12 @@ help:
 test:
 	pytest tests/ -v --cov=src --cov-report=html --cov-report=term
 
+test-fast:
+	pytest tests/ -v -x
+
+test-unit:
+	pytest tests/ -v -m "not integration"
+
 lint:
 	ruff check src/ tests/
 	mypy src/ --ignore-missing-imports
