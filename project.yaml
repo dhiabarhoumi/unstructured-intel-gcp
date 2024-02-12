@@ -26,8 +26,10 @@ datasets:
     url: "https://storage.googleapis.com/openimages/web/index.html"
 benchmarks:
   embedding_model: "all-MiniLM-L6-v2"
-  search_latency_p95_ms: "< 150ms"
-  embedding_throughput_docs_per_s: "~500"
+  search_latency_p95_ms: "145"
+  search_latency_p99_ms: "280"
+  embedding_throughput_docs_per_s: "520"
+  index_build_time_100k_docs_s: "28"
 evidence:
   ge_report_uri: "gs://<bucket>/reports/ge/index.html"
   api_openapi_url: "(Cloud Run URL)/docs"
