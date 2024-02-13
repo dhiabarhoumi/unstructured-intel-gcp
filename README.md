@@ -183,6 +183,8 @@ curl http://localhost:8080/trending?window=7d&top=50
 - Great Expectations report: `gs://<bucket>/reports/ge/index.html`
 - API documentation: `<Cloud Run URL>/docs`
 - Query examples: `sql/*.sql`
+- Benchmark notebook: `docs/benchmarks.ipynb` (coming soon)
+- Architecture diagrams: `docs/architecture.md`
 
 ## Limitations
 
