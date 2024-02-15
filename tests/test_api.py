@@ -14,6 +14,8 @@ def test_health_check():
     data = response.json()
     assert "status" in data
     assert data["status"] == "healthy"
+    assert "indexes_loaded" in data
+    assert "model_loaded" in data
 
 
 def test_root_endpoint():
