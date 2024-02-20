@@ -197,7 +197,9 @@ curl http://localhost:8080/trending?window=7d&top=50
 
 ### Run Tests
 ```bash
-make test
+make test          # Full test suite with coverage
+make test-fast     # Fast tests (stop on first failure)
+make test-unit     # Unit tests only
 ```
 
 ### Linting & Formatting
