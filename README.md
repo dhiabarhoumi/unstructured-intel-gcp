@@ -226,3 +226,7 @@ See `.github/workflows/ci.yml` for details.
 ## License
 
 MIT
+
+---
+
+Built with ❤️ for the data engineering and ML community.
